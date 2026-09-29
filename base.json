@@ -1,0 +1,343 @@
+{
+    "station": {
+        "name": "BC840",
+        "location": "Боулдер, США",
+        "description": "Данные вертикального зондирования ионосферы"
+    },
+    "cache": {
+        "default_path": "D:\\PycharmProjects\\SAO\\BC840\\binary_cache",
+        "description": "Путь к директории с бинарным кэшем данных"
+    },
+    "labels": {
+        "app_title": "ЭКСПЕРТНАЯ СИСТЕМА",
+        "app_subtitle": "Анализ временных рядов критической частоты слоя F2 (foF2)",
+        "info_title": "Информация",
+        "years_available": "Доступные годы:",
+        "years_loaded": "Загруженные годы:",
+        "points_count": "Точек данных:",
+        "cache_not_found": "Кэш с данными не найден. Проверьте путь в base.json",
+        "btn_load_data": "1. Загрузить данные",
+        "btn_spectral": "2. Выполнить спектральное разложение",
+        "btn_results": "3. Показать результаты и анализ",
+        "btn_knowledge": "База знаний (Таблицы 1-6)",
+        "btn_cache_config": "Настройка пути к данным",
+        "btn_back": "← НАЗАД",
+        "btn_select_point": "Выбрать",
+        "btn_prev": "◄ Предыдущая",
+        "btn_next": "Следующая ►",
+        "btn_main_menu": "← НАЗАД В ГЛАВНОЕ МЕНЮ",
+        "btn_save": "Сохранить",
+        "btn_cancel": "ОТМЕНА",
+        "btn_select_all": "Выбрать все",
+        "btn_clear": "Снять выделение",
+        "btn_load": "ЗАГРУЗИТЬ",
+        "title_results": "РЕЗУЛЬТАТЫ АНАЛИЗА",
+        "title_select_point": "Выбор точки для анализа",
+        "title_knowledge": "БАЗА ЗНАНИЙ (ТАБЛИЦЫ 1-6)",
+        "title_cache_config": "Настройка пути к данным",
+        "title_select_years": "Выбор годов для загрузки",
+        "label_year": "Год:",
+        "label_month": "Месяц:",
+        "label_day": "День:",
+        "label_hour": "Час:",
+        "label_minute": "Мин:",
+        "label_cache_path": "Путь к директории binary_cache:",
+        "label_select_years": "Выберите годы для загрузки:",
+        "point_info": "Точка {idx} из {total} | {date}",
+        "cache_updated": "Путь сохранён в base.json",
+        "success": "Успех",
+        "error": "Ошибка",
+        "warning": "Внимание",
+        "info": "Информация",
+        "no_data_warning": "Сначала загрузите данные",
+        "no_analysis_warning": "Сначала загрузите данные и выполните разложение",
+        "no_years_error": "Нет доступных годов в кэше",
+        "no_data_error": "Не удалось загрузить данные",
+        "invalid_date_error": "Выберите корректную дату и время",
+        "no_point_warning": "Нет данных в выбранный момент времени",
+        "spectral_success": "Спектральное разложение выполнено!",
+        "spectral_info": "Выполняется спектральный анализ...",
+        "load_success": "Загружено {points} точек\nГоды: {years}\nПериод: {start} - {end}",
+        "component_11yr": "11-летний цикл",
+        "component_annual": "Годовой ход",
+        "component_seasonal": "Сезонный ход",
+        "component_diurnal": "Суточный ход",
+        "component_hf": "Высокочастотная компонента",
+        "signal_original": "Исходный сигнал foF2",
+        "stats_title": "Статистика по компонентам (перцентили)",
+        "tab_analysis": "Анализ по правилам ЭС (Таблицы 1-6)",
+        "tab_components": "Спектральные компоненты",
+        "no_data_component": "Нет данных компоненты",
+        "no_percentiles": "Недостаточно данных для расчёта перцентилей",
+        "solar_maximum": "Значение {value:.2f} МГц выше p90={p90:.2f} МГц",
+        "solar_minimum": "Значение {value:.2f} МГц ниже p10={p10:.2f} МГц",
+        "solar_growth": "После минимума ({val:.2f} МГц) наблюдается рост",
+        "solar_decline": "После максимума ({val:.2f} МГц) наблюдается спад",
+        "continuation_growth": "Продолжение фазы роста",
+        "continuation_decline": "Продолжение фазы спада",
+        "solar_transition": "Значение {value:.2f} МГц в диапазоне {p10:.2f}-{p90:.2f} МГц",
+        "winter_anomaly": "Зимняя аномалия: {value:.2f} > p75={p75:.2f} МГц",
+        "summer_minimum": "Летний минимум: {value:.2f} < p25={p25:.2f} МГц",
+        "seasonal_normal": "Сезонная норма",
+        "spring_maximum": "Весенний максимум: {value:.2f} > p75={p75:.2f} МГц",
+        "autumn_maximum": "Осенний максимум: {value:.2f} > p75={p75:.2f} МГц",
+        "summer_minimum_seasonal": "Летний межсезонный минимум: {value:.2f} < p25={p25:.2f} МГц",
+        "winter_minimum": "Зимний минимум: {value:.2f} < p25={p25:.2f} МГц",
+        "diurnal_normal": "Норма",
+        "day_maximum": "Дневной максимум: {value:.2f} > p50×1.2={threshold:.2f} МГц",
+        "morning_minimum": "Утренний минимум: {value:.2f} < p50×0.8={threshold:.2f} МГц",
+        "no_data": "Нет значения foF2 в данный момент времени",
+        "measurement_error": "Ошибка измерения (резкий выброс)",
+        "no_anomaly": "Аномалий не обнаружено",
+        "prediction_maximum": "При периоде роста 4-5 лет ожидается максимум через 2-3 года",
+        "prediction_minimum_from_max": "В 11-летнем цикле расстояние между максимумом и минимумом составляет 5.5 лет",
+        "prediction_minimum": "При периоде спада 4-5 лет ожидается минимум через 2-3 года",
+        "prediction_maximum_from_min": "В 11-летнем цикле расстояние между минимумом и максимумом составляет 5.5 лет",
+        "no_prediction": "Недостаточно данных для прогноза"
+    },
+    "spectral": {
+        "points_per_day": 96,
+        "components": [
+            {
+                "name": "11yr",
+                "label": "11-летний цикл",
+                "color": "blue"
+            },
+            {
+                "name": "annual",
+                "label": "Годовой ход",
+                "color": "green"
+            },
+            {
+                "name": "seasonal",
+                "label": "Сезонный ход",
+                "color": "orange"
+            },
+            {
+                "name": "diurnal",
+                "label": "Суточный ход",
+                "color": "red"
+            },
+            {
+                "name": "hf",
+                "label": "Высокочастотная компонента",
+                "color": "purple"
+            }
+        ]
+    },
+    "tables": {
+        "table1": {
+            "title": "11-летний солнечный цикл",
+            "component": "11yr",
+            "labels": {
+                "MINIMUM": "МИНИМУМ",
+                "GROWTH": "РОСТ",
+                "MAXIMUM": "МАКСИМУМ",
+                "DECLINE": "СПАД",
+                "TRANSITION": "ПЕРЕХОДНАЯ",
+                "UNKNOWN": "НЕ ОПРЕДЕЛЕНА"
+            },
+            "rules": [
+                {
+                    "condition": "(предыдущая фаза = МИНИМУМ И текущее значение >= p10) ИЛИ (текущее значение <= p90 И фаза предыдущего значения = РОСТ)",
+                    "result": "GROWTH",
+                    "confidence": 0.8
+                },
+                {
+                    "condition": "текущее значение > p90",
+                    "result": "MAXIMUM",
+                    "confidence": 0.85
+                },
+                {
+                    "condition": "(фаза предыдущего значения = МАКСИМУМ И текущее значение <= p90) ИЛИ (текущее значение >= p10 И фаза предыдущего значения = СПАД)",
+                    "result": "DECLINE",
+                    "confidence": 0.8
+                },
+                {
+                    "condition": "текущее значение < p10",
+                    "result": "MINIMUM",
+                    "confidence": 0.85
+                }
+            ]
+        },
+        "table2": {
+            "title": "Годовой цикл",
+            "component": "annual",
+            "labels": {
+                "WINTER_ANOMALY": "ЗИМНЯЯ АНОМАЛИЯ",
+                "SUMMER_MINIMUM": "ЛЕТНИЙ МИНИМУМ",
+                "NORMAL": "НОРМА"
+            },
+            "rules": [
+                {
+                    "condition": "зимний месяц И текущее значение > p75",
+                    "result": "WINTER_ANOMALY",
+                    "confidence": 0.9
+                },
+                {
+                    "condition": "летний месяц И текущее значение < p25",
+                    "result": "SUMMER_MINIMUM",
+                    "confidence": 0.85
+                }
+            ]
+        },
+        "table3": {
+            "title": "Сезонный цикл",
+            "component": "seasonal",
+            "labels": {
+                "SPRING_MAXIMUM": "ВЕСЕННИЙ МАКСИМУМ",
+                "AUTUMN_MAXIMUM": "ОСЕННИЙ МАКСИМУМ",
+                "SUMMER_MINIMUM": "ЛЕТНИЙ МЕЖСЕЗОННЫЙ МИНИМУМ",
+                "WINTER_MINIMUM": "ЗИМНИЙ МИНИМУМ",
+                "NORMAL": "НОРМА"
+            },
+            "rules": [
+                {
+                    "condition": "(март ИЛИ апрель) И текущее значение > p75",
+                    "result": "SPRING_MAXIMUM",
+                    "confidence": 0.8
+                },
+                {
+                    "condition": "(сентябрь ИЛИ октябрь) И текущее значение > p75",
+                    "result": "AUTUMN_MAXIMUM",
+                    "confidence": 0.8
+                },
+                {
+                    "condition": "летний месяц И текущее значение < p25",
+                    "result": "SUMMER_MINIMUM",
+                    "confidence": 0.8
+                },
+                {
+                    "condition": "зимний месяц И текущее значение < p25",
+                    "result": "WINTER_MINIMUM",
+                    "confidence": 0.75
+                }
+            ]
+        },
+        "table4": {
+            "title": "Суточный цикл",
+            "component": "diurnal",
+            "labels": {
+                "DAY_MAXIMUM": "ДНЕВНОЙ МАКСИМУМ",
+                "MORNING_MINIMUM": "УТРЕННИЙ МИНИМУМ",
+                "NORMAL": "НОРМА"
+            },
+            "rules": [
+                {
+                    "condition": "12:00 < текущее время < 15:00 И текущее значение > p50 * 1.2",
+                    "result": "DAY_MAXIMUM",
+                    "confidence": 0.9
+                },
+                {
+                    "condition": "03:00 < текущее время < 06:00 И текущее значение < p50 * 0.8",
+                    "result": "MORNING_MINIMUM",
+                    "confidence": 0.9
+                }
+            ]
+        },
+        "table5": {
+            "title": "Аномалии",
+            "component": "original",
+            "labels": {
+                "NO_DATA": "НЕТ ДАННЫХ",
+                "MEASUREMENT_ERROR": "ОШИБКА ИЗМЕРЕНИЯ",
+                "NORMAL": "НОРМА"
+            },
+            "rules": [
+                {
+                    "condition": "текущее значение = 9999 МГц",
+                    "result": "NO_DATA",
+                    "confidence": 0.99
+                },
+                {
+                    "condition": "ABS(текущее значение - предыдущее значение) > 5 МГц И ABS(текущее значение - следующее значение) > 5 МГц И ABS(предыдущее значение - следующее значение) < 1 МГц",
+                    "result": "MEASUREMENT_ERROR",
+                    "confidence": 0.9
+                }
+            ]
+        },
+        "table6": {
+            "title": "Прогнозирование экстремумов",
+            "component": "11yr",
+            "labels": {
+                "MAXIMUM": "МАКСИМУМА",
+                "MINIMUM": "МИНИМУМА"
+            },
+            "rules": [
+                {
+                    "condition": "текущая фаза = РОСТ",
+                    "result": "MAXIMUM",
+                    "years": 2.5,
+                    "confidence": 0.7
+                },
+                {
+                    "condition": "текущая фаза = МАКСИМУМ",
+                    "result": "MINIMUM",
+                    "years": 5.5,
+                    "confidence": 0.95
+                },
+                {
+                    "condition": "текущая фаза = СПАД",
+                    "result": "MINIMUM",
+                    "years": 2.5,
+                    "confidence": 0.7
+                },
+                {
+                    "condition": "текущая фаза = МИНИМУМ",
+                    "result": "MAXIMUM",
+                    "years": 5.5,
+                    "confidence": 0.95
+                }
+            ]
+        }
+    },
+    "months": {
+        "winter": [
+            12,
+            1,
+            2
+        ],
+        "spring": [
+            3,
+            4,
+            5
+        ],
+        "summer": [
+            6,
+            7,
+            8
+        ],
+        "autumn": [
+            9,
+            10,
+            11
+        ],
+        "spring_months": [
+            3,
+            4
+        ],
+        "autumn_months": [
+            9,
+            10
+        ]
+    },
+    "time_ranges": {
+        "day_maximum": {
+            "start": 12,
+            "end": 15
+        },
+        "morning_minimum": {
+            "start": 3,
+            "end": 6
+        }
+    },
+    "anomaly_thresholds": {
+        "max_jump": 5.0,
+        "no_data_value": 9999
+    },
+    "console": {
+        "separator": "=",
+        "separator_len": 70,
+        "print_percentiles": false
+    }
+}
